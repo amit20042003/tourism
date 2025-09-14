@@ -471,6 +471,17 @@
             const oneWayMessage = encodeURIComponent(`Hello, I would like to book a one-way taxi.\nCar: ${taxi.name}`);
             const roundTripMessage = encodeURIComponent(`Hello, I would like to book a round-trip taxi.\nCar: ${taxi.name}`);
             const selfDriveMessage = encodeURIComponent(`Hello, I would like to inquire about self-drive availability for the ${taxi.name}.`);
+            
+            // --- MODIFICATION START ---
+            // Create a variable for the self-drive button
+            let selfDriveButtonHTML = `<a href="https://wa.me/919521021599?text=${selfDriveMessage}" target="_blank" class="btn-small self-drive">Self-Drive</a>`;
+            
+            // If the car is Tempo Traveller or Toyota Fortuner, make the variable empty
+            if (taxi.name === 'Tempo Traveller' || taxi.name === 'Toyota Fortuner') {
+                selfDriveButtonHTML = '';
+            }
+            // --- MODIFICATION END ---
+
             taxiGrid.innerHTML += `
                 <div class="taxi-card fade-in">
                     <div class="taxi-card-img"><img src="${taxi.img}" alt="${taxi.name}"></div>
@@ -484,7 +495,7 @@
                             <p>Choose Booking Type:</p>
                             <a href="https://wa.me/919521021599?text=${oneWayMessage}" target="_blank" class="btn-small one-way">One-Way</a>
                             <a href="https://wa.me/919521021599?text=${roundTripMessage}" target="_blank" class="btn-small round-trip">Round Trip</a>
-                            <a href="https://wa.me/919521021599?text=${selfDriveMessage}" target="_blank" class="btn-small self-drive">Self-Drive</a>
+                            ${selfDriveButtonHTML}
                         </div>
                     </div>
                 </div>`;
