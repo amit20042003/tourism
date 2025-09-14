@@ -184,16 +184,24 @@
         .details-content p span { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
         
         /* --- Taxi Booking Buttons (NEW) --- */
-        .taxi-booking-options { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; }
-        .taxi-booking-options p { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; color: #555; }
+        .taxi-booking-options {
+            margin-top: auto; padding-top: 15px; border-top: 1px solid #eee;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+        }
+        .taxi-booking-options p {
+            font-weight: 600; margin-bottom: 10px; font-size: 0.9rem;
+            color: #555; width: 100%;
+        }
         .btn-small {
             display: inline-block; padding: 8px 18px; border-radius: 30px;
-            text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; margin: 0 5px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease;
         }
         .btn-small.one-way { background: transparent; border: 2px solid var(--secondary-color); color: var(--secondary-color); }
         .btn-small.one-way:hover { background: var(--secondary-color); color: var(--white-color); }
         .btn-small.round-trip { background: var(--secondary-color); border: 2px solid var(--secondary-color); color: var(--white-color); }
         .btn-small.round-trip:hover { transform: scale(1.05); box-shadow: 0 4px 10px rgba(10, 147, 150, 0.4); }
+        .btn-small.self-drive { background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); }
+        .btn-small.self-drive:hover { background: var(--accent-color); color: var(--dark-color); }
 
         /* --- About Me Section --- */
         .about-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
@@ -330,7 +338,9 @@
         
         <section class="section" id="service-area">
             <div class="container">
-                <h2 class="section-title fade-in">Rajasthan tour service</h2>
+                <h2 class="section-title fade-in">All India Taxi Service service</h2>
+                <h2>One way taxi service<br>
+                    To way taxi service</h2>
                 <div class="locations-grid fade-in" id="locations-grid">
                     </div>
             </div>
@@ -458,6 +468,7 @@
         taxiData.forEach(taxi => {
             const oneWayMessage = encodeURIComponent(`Hello, I would like to book a one-way taxi.\nCar: ${taxi.name}`);
             const roundTripMessage = encodeURIComponent(`Hello, I would like to book a round-trip taxi.\nCar: ${taxi.name}`);
+            const selfDriveMessage = encodeURIComponent(`Hello, I would like to inquire about self-drive availability for the ${taxi.name}.`);
             taxiGrid.innerHTML += `
                 <div class="taxi-card fade-in">
                     <div class="taxi-card-img"><img src="${taxi.img}" alt="${taxi.name}"></div>
@@ -468,9 +479,10 @@
                             <div class="details-content"><p><span>₹${taxi.ratePerKm}</span> / km</p></div>
                         </div>
                         <div class="taxi-booking-options">
-                            <p>Choose Trip Type:</p>
+                            <p>Choose Booking Type:</p>
                             <a href="https://wa.me/919521021599?text=${oneWayMessage}" target="_blank" class="btn-small one-way">One-Way</a>
                             <a href="https://wa.me/919521021599?text=${roundTripMessage}" target="_blank" class="btn-small round-trip">Round Trip</a>
+                            <a href="https://wa.me/919521021599?text=${selfDriveMessage}" target="_blank" class="btn-small self-drive">Self-Drive</a>
                         </div>
                     </div>
                 </div>`;
