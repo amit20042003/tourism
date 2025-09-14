@@ -55,7 +55,7 @@
             grid-column: 1 / 2;
         }
         .header.scrolled .logo { color: var(--primary-color); }
-        .header:not(.scrolled) .logo { color: var(--white-color); }
+        .header:not(.scrolled) .logo { color: var(--white-color); text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
 
         .nav-main {
             grid-column: 2 / 3;
@@ -170,7 +170,7 @@
         .self-drive-card .btn { width: 100%; padding: 12px; font-size: 1rem; }
 
         /* --- Car Slider Section --- */
-        #cars { background: linear-gradient(to bottom, #e0eafc, #cfdef3); }
+        /* REMOVED: #cars section styles */
         .swiper.car-swiper { width: 100%; padding-top: 50px; padding-bottom: 50px; }
         .swiper-slide.car-slide {
             background-position: center; background-size: cover; width: 350px; height: 450px;
@@ -321,10 +321,9 @@
             <nav class="nav-main">
                 <ul class="nav-links" id="nav-links">
                     <li><a class="nav-link-item" data-scroll-to="service-area">Locations</a></li>
-                    <li><a class="nav-link-item" data-scroll-to="self-drive-cars">Self-Drive</a></li>
                     <li><a class="nav-link-item" data-scroll-to="taxi-services">Taxi</a></li>
+                    <li><a class="nav-link-item" data-scroll-to="self-drive-cars">Self-Drive</a></li>
                     <li><a class="nav-link-item" data-scroll-to="domestic-tours">Tours</a></li>
-                    <li><a class="nav-link-item" data-scroll-to="cars">Gadiyan</a></li>
                     <li><a class="nav-link-item" data-scroll-to="about">About Me</a></li>
                     <li><a class="nav-link-item contact-link-menu" style="cursor: pointer;">Contact Card</a></li>
                 </ul>
@@ -344,7 +343,7 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1>Jaipur Airport Taxi Service</h1>
-                <p>Manzilon se behtar lagne lage hain ye raaste... Chaliye, ek naye safar par nikalte hain. Call Me --> 9521021599</p>
+                <p>Manzilon se behtar lagne lage hain ye raaste... Chaliye, ek naye safar par nikalte hain. Call Me --> 8118816370</p>
                 <a href="#domestic-tours" class="btn">Explore Tours</a>
             </div>
             <div class="wave-divider"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg></div>
@@ -358,6 +357,13 @@
             </div>
         </section>
         
+        <section class="section" id="taxi-services" style="background: #fdfdfd;">
+            <div class="container">
+                <h2 class="section-title fade-in">Book a Taxi with Driver</h2>
+                <div class="taxi-grid" id="taxi-grid"></div>
+            </div>
+        </section>
+
         <section class="section" id="self-drive-cars" style="background-color: #e9ecef;">
             <div class="container">
                 <h2 class="section-title fade-in">Self-Drive Cars Available</h2>
@@ -365,22 +371,7 @@
                     </div>
             </div>
         </section>
-
-        <section class="section" id="taxi-services" style="background: #fdfdfd;">
-            <div class="container">
-                <h2 class="section-title fade-in">Book a Taxi with Driver</h2>
-                <div class="taxi-grid" id="taxi-grid"></div>
-            </div>
-        </section>
         
-        <section class="section" id="cars">
-            <div class="container"><h2 class="section-title fade-in">Hamara Gadiyon ka Kafila</h2></div>
-            <div class="swiper car-swiper fade-in">
-                <div class="swiper-wrapper" id="car-swiper-wrapper"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-
         <section class="section" id="domestic-tours">
             <div class="container">
                 <h2 class="section-title fade-in">Royal Rajasthan Tours</h2>
@@ -402,7 +393,7 @@
         </section>
     </main>
 
-    <div id="contact-overlay" class="contact-overlay"> <button id="close-contact-btn" class="close-contact-btn">&times;</button> <div class="contact-card-container fade-in"> <div class="contact-card" id="interactive-contact-card"> <div class="contact-card-content"> <img src="https://placehold.co/300x300/ffb703/212529?text=M" alt="Mukesh" class="profile-pic"> <h3>Mukesh</h3> <p>Aapka Personal Travel Advisor</p> <div class="call-action"> <a href="tel:9521021599" class="call-btn"> <span class="text"> <span class="icon"><i class="fa-solid fa-phone"></i></span> <span>Call Me</span> </span> <span class="phone-number">9521021599</span> </a> </div> </div> </div> </div> </div>
+    <div id="contact-overlay" class="contact-overlay"> <button id="close-contact-btn" class="close-contact-btn">&times;</button> <div class="contact-card-container fade-in"> <div class="contact-card" id="interactive-contact-card"> <div class="contact-card-content"> <img src="https://placehold.co/300x300/ffb703/212529?text=M" alt="Mukesh" class="profile-pic"> <h3>Mukesh</h3> <p>Aapka Personal Travel Advisor</p> <div class="call-action"> <a href="tel:8118816370" class="call-btn"> <span class="text"> <span class="icon"><i class="fa-solid fa-phone"></i></span> <span>Call Me</span> </span> <span class="phone-number">8118816370</span> </a> </div> </div> </div> </div> </div>
     <div id="bookingModal" class="modal"><div class="modal-content"><span class="close-btn">&times;</span><h2 id="modalTourName">Tour Booking</h2><div class="modal-step active" id="step1"><h3>1. Apni Gaadi Chunein</h3><p><small>(Tour price includes Innova Crysta. Change if you want.)</small></p><div class="car-selection-container" id="carSelectionGrid"></div></div><div class="modal-step" id="step2"><h3>2. Extra Services Add Karein</h3><div class="addon-selection" id="addonSelection"></div></div><div class="final-price-display"><h4>Total Price</h4><p id="finalPrice">₹0</p></div><button class="btn" id="nextStepBtn" style="margin-top: 20px;">Next</button><button class="btn" id="confirmBookingBtn" style="margin-top: 20px; display: none;">Confirm Booking</button></div></div>
     <div id="successModal" class="modal"><div class="modal-content"><div class="success-animation"><svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg></div><h2>Booking Confirmed!</h2><p>Aapki trip plan ho chuki hai. Details ke liye humse judiyein.</p><div class="social-share" id="socialShareLinks" style="margin-top:20px;"></div><button class="btn" id="closeSuccessBtn" style="margin-top:20px;">Close</button></div></div>
 
@@ -413,7 +404,7 @@
         // (All data arrays like serviceLocations, carsData, etc. remain the same)
         const serviceLocations = ['Jaipur', 'Ajmer', 'Delhi', 'Jodhpur', 'Jaisalmer', 'Udaipur', 'Bhilwara', 'Ranthambore', 'Bombay'];
         const carsData = [ { name: 'Swift', price: 3000, img: 'https://images.unsplash.com/photo-1663852408695-f57f4d75a536?w=900&auto=format&fit=crop&q=60', capacity: 4, mileage: '22 km/l', color: 'White, Blue' }, { name: 'Ertiga', price: 4000, img: 'https://wallpaperaccess.com/full/5671529.jpg', capacity: 7, mileage: '20 km/l', color: 'Silver, Red' }, { name: 'Innova Crysta', price: 5000, img: 'https://wallpaperaccess.com/full/2467690.jpg', capacity: 7, mileage: '12 km/l', color: 'Black, White' }, { name: 'Thar', price: 6000, img: 'https://images.unsplash.com/photo-1710225358761-4f5891df657d?w=900&auto=format&fit=crop&q=60', capacity: 4, mileage: '15 km/l', color: 'Black, Red' }, { name: 'Sedan (Verna)', price: 4500, img: 'https://images.unsplash.com/photo-1633359279771-804abaf0f0b4?w=900&auto=format&fit=crop&q=60', capacity: 5, mileage: '18 km/l', color: 'White, Black' }, { name: 'Scorpio-N', price: 7000, img: 'https://imgd-ct.aeplcdn.com/1056x660/n/cw/ec/125217/mahindra-scorpio-left-rear-three-quarter6.jpeg?isig=0&wm=0&q=80', capacity: 7, mileage: '14 km/l', color: 'Black' }, { name: 'Fortuner', price: 8000, img: 'https://images.unsplash.com/photo-16647838569972-ac9922d7b2d3?w=900&auto=format&fit=crop&q=60', capacity: 7, mileage: '10 km/l', color: 'White, Black' }, { name: 'Tempo Traveller', price: 10000, img: 'https://wallpapercave.com/wp/wp12320769.jpg', capacity: 12, mileage: '11 km/l', color: 'White' }, ];
-        const selfDriveCarsData = [ { name: 'Maruti Swift', img: 'https://images.unsplash.com/photo-1663852408695-f57f4d75a536?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFydXRpJTIwc3V6dWtpfGVufDB8fDB8fHww' }, { name: 'Maruti Swift Dzire', img: 'https://images.unsplash.com/photo-1709105335704-57be7fecb556?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHN3aWZ0JTIwY2FyfGVufDB8fDB8fHww' }, { name: 'Mahindra Thar', img: 'https://images.unsplash.com/photo-1633867179970-c54688bcfa33?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWFoaW5kcmElMjBUaGFyfGVufDB8fDB8fHww' }, { name: 'Mahindra XUV700', img: 'https://images.unsplash.com/photo-1619767886657-15c34f530180?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWFoaW5kcmF8ZW58MHx8MHx8fDA%3D' }, { name: 'Mahindra Bolero', img: 'https://media.istockphoto.com/id/1150886770/photo/car.webp?a=1&b=1&s=612x612&w=0&k=20&c=BK58PAH7MXrZvoAfcxxaRWGLrqNPjDR5TkH5o3O2t1E=' }, { name: 'Maruti Baleno', img: 'https://images.unsplash.com/photo-1630171011805-11ebc32f7229?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEJhbGVub3xlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Hyundai i20', img: 'https://images.unsplash.com/photo-1646119253693-0b80f2906791?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SHl1bmRhaSUyMGkyMHxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Maruti Ertiga', img: 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-9.jpeg?isig=0&q=80' }, { name: 'Kia Carens', img: 'https://images.unsplash.com/photo-1710594022719-a37944dc12ae?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2lhJTIwQ2FyZW5zfGVufDB8fDB8fHww' }, { name: 'Honda Amaze', img: 'https://images.unsplash.com/photo-1722965157177-c2cf568e40a4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SG9uZGElMjBBbWF6ZXxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Tata Nexon', img: 'https://images.unsplash.com/photo-1662365480801-4ccf649baa94?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VGF0YSUyME5leG9ufGVufDB8fDB8fHww' }, { name: 'Hyundai Creta', img: 'https://images.unsplash.com/photo-1653407978873-f7bd5d3a3f8f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SHl1bmRhaSUyMENyZXRhfGVufDB8fDB8fHww' }, { name: 'Mahindra Scorpio N', img: 'https://images.unsplash.com/photo-1638120631090-d13304ef49aa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWFoaW5kcmElMjBTY29ycGlvfGVufDB8fDB8fHww' }, { name: 'Toyota Fortuner', img: 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/44709/fortuner-exterior-right-front-three-quarter-20.jpeg?isig=0&q=80' }, { name: 'Toyota Glanza', img: 'https://images.unsplash.com/photo-1727908147407-fa90e969c4dd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFRveW90YSUyMEdsYW56YXxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Toyota Rumion', img: 'https://images.unsplash.com/photo-1680552443758-be5fc9086426?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFRveW90YSUyMGNhcnN8ZW58MHx8MHx8fDA%3D' } ];
+        const selfDriveCarsData = [ { name: 'Maruti Swift', img: 'https://images.unsplash.com/photo-1663852408695-f57f4d75a536?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFydXRpJTIwc3V6dWtpfGVufDB8fDB8fHww' }, { name: 'Maruti Swift Dzire', img: 'https://images.unsplash.com/photo-1709105335704-57be7fecb556?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHN3aWZ0JTIwY2FyfGVufDB8fDB8fHww' }, { name: 'Mahindra Thar', img: 'https://images.unsplash.com/photo-1633867179970-c54688bcfa33?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWFoaW5kcmElMjBUaGFyfGVufDB8fDB8fHww' }, { name: 'Mahindra XUV500', img: 'https://images.unsplash.com/photo-1619767886657-15c34f530180?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWFoaW5kcmF8ZW58MHx8MHx8fDA%3D' }, { name: 'Mahindra Bolero', img: 'https://media.istockphoto.com/id/1150886770/photo/car.webp?a=1&b=1&s=612x612&w=0&k=20&c=BK58PAH7MXrZvoAfcxxaRWGLrqNPjDR5TkH5o3O2t1E=' }, { name: 'Maruti Baleno', img: 'https://images.unsplash.com/photo-1630171011805-11ebc32f7229?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEJhbGVub3xlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Hyundai i20', img: 'https://images.unsplash.com/photo-1646119253693-0b80f2906791?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8SHl1bmRhaSUyMGkyMHxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Maruti Ertiga', img: 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/115777/ertiga-exterior-right-front-three-quarter-9.jpeg?isig=0&q=80' }, { name: 'Kia Carens', img: 'https://images.unsplash.com/photo-1710594022719-a37944dc12ae?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2lhJTIwQ2FyZW5zfGVufDB8fDB8fHww' }, { name: 'Honda Amaze', img: 'https://images.unsplash.com/photo-1722965157177-c2cf568e40a4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SG9uZGElMjBBbAZlG5vcmVzcGFjZXxzZXJ2aWNlX2FyZWEtY29udGVudHxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Tata Nexon', img: 'https://images.unsplash.com/photo-1662365480801-4ccf649baa94?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VGF0YSUyME5leG9ufGVufDB8fDB8fHww' }, { name: 'Hyundai Creta', img: 'https://images.unsplash.com/photo-1653407978873-f7bd5d3a3f8f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8SHl1bmRhaSUyMENyZXRhfGVufDB8fDB8fHww' }, { name: 'Mahindra Scorpio N', img: 'https://images.unsplash.com/photo-1638120631090-d13304ef49aa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWFoaW5kcmElMjBTY29ycGlvfGVufDB8fDB8fHww' }, { name: 'Toyota Fortuner', img: 'https://imgd.aeplcdn.com/1280x720/n/cw/ec/44709/fortuner-exterior-right-front-three-quarter-20.jpeg?isig=0&q=80' }, { name: 'Toyota Glanza', img: 'https://images.unsplash.com/photo-1727908147407-fa90e969c4dd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFRveW90YSUyMEdsYW56YXxlbnwwfHwwfHx8MA%3D%3D' }, { name: 'Toyota Rumion', img: 'https://images.unsplash.com/photo-1680552443758-be5fc9086426?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFRveW90YSUyMGNhcnN8ZW58MHx8MHx8fDA%3D' } ];
         const defaultCar = carsData.find(car => car.name === 'Innova Crysta');
         const rajasthanTours = [ { name: 'Golden Triangle', price: 15000, desc: 'Delhi, Agra, Jaipur ka safar (5D/4N)', img: 'https://media.gettyimages.com/id/1084972120/photo/amer-fort-at-sunset-in-jaipur-india.jpg?s=612x612&w=0&k=20&c=fj2ZNorkDkcnvyMfMKk6ZT4-Xmrnk648B6LUajpulII=' }, { name: 'Desert Odyssey', price: 12500, desc: 'Jodhpur & Jaisalmer ka anubhav (4D/3N)', img: 'https://media.gettyimages.com/id/672157339/photo/mehrangarh-fort-in-jodhpur-rajasthan-india.jpg?s=612x612&w=0&k=20&c=jbDYt17_CE1hv5nR1EvWWxTrXWRZSyvelvx7fIlqkM4=' }, { name: 'Lake City Romance', price: 10000, desc: 'Udaipur & Mount Abu ki sair (3D/2N)', img: 'https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?q=80&w=1935&auto=format&fit=crop' }, { name: 'Shekhawati Haveli Tour', price: 11000, desc: 'Mandawa & Nawalgarh ki haveliyan (3D/2N)', img: 'https://media.gettyimages.com/id/154969449/photo/phool-mahal-mehrangarh-fort-jodhpu-rajasthan-india.jpg?s=612x612&w=0&k=20&c=-TpwEr_uvdouXzgnyG9woVHjtmbKknmVkN-yjMjkWAc=' }, { name: 'Mewar Magnificence', price: 14000, desc: 'Udaipur, Chittorgarh, Kumbhalgarh (4D/3N)', img: 'https://images.unsplash.com/photo-1717329162563-2f93e83cc717?w=900&auto=format&fit=crop&q=60' }, { name: 'Wildlife Wonders', price: 13000, desc: 'Ranthambore & Sariska Safari (4D/3N)', img: 'https://media.gettyimages.com/id/520373860/photo/three-bengal-tigers-in-front-of-tourist-car.jpg?s=612x612&w=0&k=20&c=f0r7y2d_pcqCav29zO1ECpjf6zAJI5buHDhvZqDKgw4=' }, ];
         const addonsData = [ { name: '5 Star Hotel', price: 8000 }, { name: 'Personal Guide', price: 2000 }, { name: 'Adventure Sports', price: 4000 } ];
@@ -426,10 +417,11 @@
         rajasthanTours.forEach(tour => { rajasthanGrid.innerHTML += `<div class="base-card fade-in"><div class="card-img-container"><img src="${tour.img}" alt="${tour.name}"></div><div class="card-content"><h3>${tour.name}</h3><p class="tour-description">${tour.desc}</p><div class="tour-price">₹${(tour.price + defaultCar.price).toLocaleString('en-IN')} <span>/ person (with Innova)</span></div><button class="btn open-booking-modal" data-tour-name="${tour.name}" data-base-price="${tour.price}">Book Now</button></div></div>`; });
         const selfDriveGrid = document.getElementById('self-drive-grid');
         selfDriveCarsData.forEach(car => { selfDriveGrid.innerHTML += `<div class="base-card self-drive-card fade-in"><div class="card-img-container"><img src="${car.img}" alt="${car.name}"></div><div class="card-content"><h3>${car.name}</h3><button class="btn book-self-drive-btn" data-car-name="${car.name}">Book</button></div></div>`; });
-        const carSwiperWrapper = document.getElementById('car-swiper-wrapper');
-        [...carsData, ...taxiData].forEach(car => { carSwiperWrapper.innerHTML += `<div class="swiper-slide car-slide" style="background-image:url(${car.img})"><div class="car-info"><h4>${car.name}</h4></div></div>`; });
+        // REMOVED: Car Swiper Wrapper population
+        // const carSwiperWrapper = document.getElementById('car-swiper-wrapper');
+        // [...carsData, ...taxiData].forEach(car => { carSwiperWrapper.innerHTML += `<div class="swiper-slide car-slide" style="background-image:url(${car.img})"><div class="car-info"><h4>${car.name}</h4></div></div>`; });
         const taxiGrid = document.getElementById('taxi-grid');
-        taxiData.forEach(taxi => { const oneWayMessage = encodeURIComponent(`Hello, I would like to book a one-way taxi.\nCar: ${taxi.name}`); const roundTripMessage = encodeURIComponent(`Hello, I would like to book a round-trip taxi.\nCar: ${taxi.name}`); taxiGrid.innerHTML += `<div class="taxi-card fade-in"><div class="taxi-card-img"><img src="${taxi.img}" alt="${taxi.name}"></div><div class="taxi-card-content"><div><h3>${taxi.name}</h3><button class="details-toggle">Show Rate <i class="fa-solid fa-chevron-down"></i></button><div class="details-content"><p><span>₹${taxi.ratePerKm}</span> / km</p></div></div><div class="taxi-booking-options"><p>Choose Booking Type:</p><a href="https://wa.me/919521021599?text=${oneWayMessage}" target="_blank" class="btn-small one-way">One-Way</a><a href="https://wa.me/919521021599?text=${roundTripMessage}" target="_blank" class="btn-small round-trip">Round Trip</a></div></div></div>`; });
+        taxiData.forEach(taxi => { const oneWayMessage = encodeURIComponent(`Hello, I would like to book a one-way taxi.\nCar: ${taxi.name}`); const roundTripMessage = encodeURIComponent(`Hello, I would like to book a round-trip taxi.\nCar: ${taxi.name}`); taxiGrid.innerHTML += `<div class="taxi-card fade-in"><div class="taxi-card-img"><img src="${taxi.img}" alt="${taxi.name}"></div><div class="taxi-card-content"><div><h3>${taxi.name}</h3><button class="details-toggle">Show Rate <i class="fa-solid fa-chevron-down"></i></button><div class="details-content"><p><span>₹${taxi.ratePerKm}</span> / km</p></div></div><div class="taxi-booking-options"><p>Choose Booking Type:</p><a href="https://wa.me/918118816370?text=${oneWayMessage}" target="_blank" class="btn-small one-way">One-Way</a><a href="https://wa.me/918118816370?text=${roundTripMessage}" target="_blank" class="btn-small round-trip">Round Trip</a></div></div></div>`; });
 
         // --- UI INTERACTIONS ---
         const header = document.getElementById('header');
@@ -447,7 +439,8 @@
                 navLinks.classList.remove('active');
             });
         });
-        new Swiper(".car-swiper", { effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto", coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }, pagination: { el: ".swiper-pagination" }, loop: true, autoplay: { delay: 3000, disableOnInteraction: false } });
+        // REMOVED: Swiper initialization
+        // new Swiper(".car-swiper", { effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto", coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }, pagination: { el: ".swiper-pagination" }, loop: true, autoplay: { delay: 3000, disableOnInteraction: false } });
         const faders = document.querySelectorAll('.fade-in');
         const appearOnScroll = new IntersectionObserver((entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.1 });
         faders.forEach(fader => appearOnScroll.observe(fader));
@@ -477,7 +470,7 @@
             const bookBtn = e.target.closest('.book-self-drive-btn'); if (!bookBtn) return;
             const carName = bookBtn.dataset.carName;
             const message = `Hello, I would like to inquire about booking the ${carName} for self-drive.`;
-            const whatsappURL = `https://wa.me/919521021599?text=${encodeURIComponent(message)}`;
+            const whatsappURL = `https://wa.me/918118816370?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         });
 
@@ -497,16 +490,16 @@
         document.getElementById('carSelectionGrid').addEventListener('click', e => { const carOption = e.target.closest('.car-option'); if (!carOption) return; document.querySelectorAll('#carSelectionGrid .car-option').forEach(opt => opt.classList.remove('selected')); carOption.classList.add('selected'); priceModifiers.car = parseInt(carOption.dataset.priceModifier); updatePrice(); });
         document.getElementById('addonSelection').addEventListener('click', e => { const addonOption = e.target.closest('.car-option'); if (!addonOption) return; addonOption.classList.toggle('selected'); priceModifiers.addons = 0; document.querySelectorAll('#addonSelection .selected').forEach(opt => priceModifiers.addons += parseInt(opt.dataset.priceModifier)); updatePrice(); });
         document.getElementById('nextStepBtn').addEventListener('click', function() { document.getElementById('step1').classList.remove('active'); document.getElementById('step2').classList.add('active'); this.style.display = 'none'; document.getElementById('confirmBookingBtn').style.display = 'block'; });
-        document.getElementById('confirmBookingBtn').addEventListener('click', function() { bookingModal.style.display = 'none'; successModal.style.display = 'flex'; const tourInfoText = encodeURIComponent(`Hi Mukesh, I'm interested in booking the ${currentTour.name} tour. My calculated price is ${document.getElementById('finalPrice').textContent}. Please provide more details.`); document.getElementById('socialShareLinks').innerHTML = `<a href="https://wa.me/919521021599?text=${tourInfoText}" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="https://instagram.com/priyatourandtravels" target="_blank"><i class="fab fa-instagram"></i></a>`; });
+        document.getElementById('confirmBookingBtn').addEventListener('click', function() { bookingModal.style.display = 'none'; successModal.style.display = 'flex'; const tourInfoText = encodeURIComponent(`Hi Mukesh, I'm interested in booking the ${currentTour.name} tour. My calculated price is ${document.getElementById('finalPrice').textContent}. Please provide more details.`); document.getElementById('socialShareLinks').innerHTML = `<a href="https://wa.me/918118816370?text=${tourInfoText}" target="_blank"><i class="fab fa-whatsapp"></i></a><a href="https://instagram.com/priyatourandtravels" target="_blank"><i class="fab fa-instagram"></i></a>`; });
         document.querySelector('#bookingModal .close-btn').onclick = () => bookingModal.style.display = 'none';
         document.getElementById('closeSuccessBtn').onclick = () => successModal.style.display = 'none';
     });
     </script>
 
-    <a href="https://wa.me/919521021599?text=Hello!%20I'm%20interested%20in%20your%20tour%20packages." class="fab whatsapp-float" target="_blank">
+    <a href="https://wa.me/918118816370?text=Hello!%20I'm%20interested%20in%20your%20tour%20packages." class="fab whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
-    <a href="tel:9521021599" class="fab call-float">
+    <a href="tel:8118816370" class="fab call-float">
         <i class="fa-solid fa-phone"></i>
     </a>
 
