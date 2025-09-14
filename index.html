@@ -62,7 +62,6 @@
         .nav-links a:hover::after { width: 100%; }
         .menu-toggle { display: none; }
         
-
         /* --- Hero Section --- */
         .hero {
             height: 100vh; display: flex; align-items: center; justify-content: center;
@@ -82,22 +81,40 @@
         .wave-divider svg { position: relative; display: block; width: calc(100% + 1.3px); height: 150px; }
         .wave-divider .shape-fill { fill: var(--light-color); }
         
-        /* --- Car Slider Section (Coverflow) --- */
-        #cars { background: linear-gradient(to bottom, #e0eafc, #cfdef3); }
-        .swiper.car-swiper { width: 100%; padding-top: 50px; padding-bottom: 50px; }
-        .swiper-slide.car-slide {
-            background-position: center; background-size: cover;
-            width: 350px; height: 450px; border-radius: var(--border-radius);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
-            display: flex; align-items: flex-end;
-            transition: transform 0.5s;
+        /* --- Service Areas Section (NEW) --- */
+        #service-area { background-color: #f0f4f8; }
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            text-align: center;
         }
-        .car-slide .car-info {
-            width: 100%; color: var(--white-color); padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        .location-item {
+            background: var(--white-color);
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
         }
-        .car-slide h4 { font-family: var(--body-font); font-size: 1.5rem; color: var(--white-color); }
+        .location-item:hover {
+            transform: translateY(-10px);
+            background: var(--primary-color);
+            color: var(--white-color);
+            box-shadow: 0 12px 25px rgba(0, 95, 115, 0.2);
+        }
+        .location-item i {
+            display: block;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+        .location-item:hover i {
+            color: var(--accent-color);
+        }
         
         /* --- Tour Card Grid --- */
         .tour-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; }
@@ -117,93 +134,66 @@
         .tour-content .tour-price span { font-size: 0.9rem; font-weight: normal; color: #777; }
         .tour-card .btn { width: 80%; text-align: center; margin: 0 auto; }
 
-        /* --- Taxi Services Section --- */
-        .taxi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        /* --- Car Slider Section (Coverflow) --- */
+        #cars { background: linear-gradient(to bottom, #e0eafc, #cfdef3); }
+        .swiper.car-swiper { width: 100%; padding-top: 50px; padding-bottom: 50px; }
+        .swiper-slide.car-slide {
+            background-position: center; background-size: cover;
+            width: 350px; height: 450px; border-radius: var(--border-radius);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            display: flex; align-items: flex-end;
+            transition: transform 0.5s;
         }
+        .car-slide .car-info {
+            width: 100%; color: var(--white-color); padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        .car-slide h4 { font-family: var(--body-font); font-size: 1.5rem; color: var(--white-color); }
+
+        /* --- Taxi Services Section --- */
+        .taxi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .taxi-card {
-            background: var(--white-color);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            background: var(--white-color); border-radius: var(--border-radius);
+            box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;
             transition: all 0.4s ease;
         }
-        .taxi-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        .taxi-card-img {
-            height: 220px;
-            width: 100%;
-            overflow: hidden;
-        }
-        .taxi-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-        .taxi-card:hover .taxi-card-img img {
-            transform: scale(1.1);
-        }
+        .taxi-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .taxi-card-img { height: 220px; width: 100%; overflow: hidden; }
+        .taxi-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .taxi-card:hover .taxi-card-img img { transform: scale(1.1); }
         .taxi-card-content {
-            padding: 25px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 25px; text-align: center; flex-grow: 1; display: flex;
+            flex-direction: column; justify-content: space-between;
         }
-        .taxi-card-content h3 {
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-        }
+        .taxi-card-content h3 { font-size: 1.7rem; margin-bottom: 15px; }
         .details-toggle {
-            background: none;
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            background: none; border: 2px solid var(--secondary-color); color: var(--secondary-color);
+            padding: 8px 20px; border-radius: 50px; cursor: pointer; font-weight: 600;
+            margin-bottom: 20px; transition: all 0.3s ease;
         }
-        .details-toggle:hover {
-            background: var(--secondary-color);
-            color: var(--white-color);
-        }
-        .details-toggle .fa-chevron-down {
-            margin-left: 8px;
-            transition: transform 0.4s ease;
-        }
-        .taxi-card.active .details-toggle .fa-chevron-down {
-            transform: rotate(180deg);
-        }
+        .details-toggle:hover { background: var(--secondary-color); color: var(--white-color); }
+        .details-toggle .fa-chevron-down { margin-left: 8px; transition: transform 0.4s ease; }
+        .taxi-card.active .details-toggle .fa-chevron-down { transform: rotate(180deg); }
         .details-content {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
+            max-height: 0; overflow: hidden; opacity: 0;
             transition: max-height 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease, margin-top 0.5s ease;
         }
-        .taxi-card.active .details-content {
-            max-height: 100px;
-            opacity: 1;
-            margin-top: 15px;
+        .taxi-card.active .details-content { max-height: 100px; opacity: 1; margin-top: 15px; }
+        .details-content p { font-size: 1.1rem; color: var(--dark-color); }
+        .details-content p span { font-size: 2rem; font-weight: 700; color: var(--primary-color); }
+        
+        /* --- Taxi Booking Buttons (NEW) --- */
+        .taxi-booking-options { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee; }
+        .taxi-booking-options p { font-weight: 600; margin-bottom: 10px; font-size: 0.9rem; color: #555; }
+        .btn-small {
+            display: inline-block; padding: 8px 18px; border-radius: 30px;
+            text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; margin: 0 5px;
         }
-        .details-content p {
-            font-size: 1.1rem;
-            color: var(--dark-color);
-        }
-        .details-content p span {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
+        .btn-small.one-way { background: transparent; border: 2px solid var(--secondary-color); color: var(--secondary-color); }
+        .btn-small.one-way:hover { background: var(--secondary-color); color: var(--white-color); }
+        .btn-small.round-trip { background: var(--secondary-color); border: 2px solid var(--secondary-color); color: var(--white-color); }
+        .btn-small.round-trip:hover { transform: scale(1.05); box-shadow: 0 4px 10px rgba(10, 147, 150, 0.4); }
 
         /* --- About Me Section --- */
         .about-content { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
@@ -315,6 +305,7 @@
         <div class="container navbar">
             <a href="#" class="logo">Priya tour and travells Jaipur</a>
             <ul class="nav-links" id="nav-links">
+                <li><a data-scroll-to="service-area">Locations</a></li>
                 <li><a data-scroll-to="domestic-tours">Tours</a></li>
                 <li><a data-scroll-to="cars">Gadiyan</a></li>
                 <li><a data-scroll-to="taxi-services">Taxi</a></li>
@@ -337,6 +328,13 @@
             <div class="wave-divider"><svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path></svg></div>
         </section>
         
+        <section class="section" id="service-area">
+            <div class="container">
+                <h2 class="section-title fade-in">Rajasthan tour service</h2>
+                <div class="locations-grid fade-in" id="locations-grid">
+                    </div>
+            </div>
+        </section>
         <section class="section" id="domestic-tours">
             <div class="container">
                 <h2 class="section-title fade-in">Royal Rajasthan Tours</h2>
@@ -405,6 +403,8 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // --- DATA ---
+        const serviceLocations = ['Jaipur', 'Ajmer', 'Delhi', 'Jodhpur', 'Jaisalmer', 'Udaipur', 'Bhilwara', 'Ranthambore', 'Bombay'];
+
         const carsData = [
             { name: 'Swift', price: 3000, img: 'https://images.unsplash.com/photo-1663852408695-f57f4d75a536?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U3dpZnQlMjBjYXJ8ZW58MHx8MHx8fDA%3D', capacity: 4, mileage: '22 km/l', color: 'White, Blue' },
             { name: 'Ertiga', price: 4000, img: 'https://wallpaperaccess.com/full/5671529.jpg', capacity: 7, mileage: '20 km/l', color: 'Silver, Red' },
@@ -412,7 +412,7 @@
             { name: 'Thar', price: 6000, img: 'https://images.unsplash.com/photo-1710225358761-4f5891df657d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8VGhhciUyMGNhcnxlbnwwfHwwfHx8MA%3D%3D', capacity: 4, mileage: '15 km/l', color: 'Black, Red' },
             { name: 'Sedan (Verna)', price: 4500, img: 'https://images.unsplash.com/photo-1633359279771-804abaf0f0b4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8U2VkYW4lMjAoVmVybmEpfGVufDB8fDB8fHww', capacity: 5, mileage: '18 km/l', color: 'White, Black' },
             { name: 'Scorpio-N', price: 7000, img: 'https://imgd-ct.aeplcdn.com/1056x660/n/cw/ec/125217/mahindra-scorpio-left-rear-three-quarter6.jpeg?isig=0&wm=0&q=80', capacity: 7, mileage: '14 km/l', color: 'Black' },
-            { name: 'Fortuner', price: 8000, img: 'https://images.unsplash.com/photo-16647838569<div>Mukesh</div>972-ac9922d7b2d3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rm9ydHVuZXIlMjBjYXJ8ZW58MHx8MHx8fDA%3D', capacity: 7, mileage: '10 km/l', color: 'White, Black' },
+            { name: 'Fortuner', price: 8000, img: 'https://images.unsplash.com/photo-16647838569972-ac9922d7b2d3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Rm9ydHVuZXIlMjBjYXJ8ZW58MHx8MHx8fDA%3D', capacity: 7, mileage: '10 km/l', color: 'White, Black' },
             { name: 'Tempo Traveller', price: 10000, img: 'https://wallpapercave.com/wp/wp12320769.jpg', capacity: 12, mileage: '11 km/l', color: 'White' },
         ];
         const defaultCar = carsData.find(car => car.name === 'Innova Crysta');
@@ -438,6 +438,11 @@
         ];
 
         // --- DYNAMIC CONTENT INJECTION ---
+        const locationsGrid = document.getElementById('locations-grid');
+        serviceLocations.forEach(location => {
+            locationsGrid.innerHTML += `<div class="location-item"><i class="fa-solid fa-map-pin"></i><span>${location}</span></div>`;
+        });
+
         const rajasthanGrid = document.getElementById('rajasthan-tours-grid');
         rajasthanTours.forEach(tour => {
             rajasthanGrid.innerHTML += `<div class="tour-card fade-in"><div class="tour-img-container"><img src="${tour.img}" alt="${tour.name}"></div><div class="tour-content"><h3>${tour.name}</h3><p class="tour-description">${tour.desc}</p><div class="tour-price">₹${(tour.price + defaultCar.price).toLocaleString('en-IN')} <span>/ person (with Innova)</span></div><button class="btn open-booking-modal" data-tour-name="${tour.name}" data-base-price="${tour.price}">Book Now</button></div></div>`;
@@ -451,26 +456,24 @@
 
         const taxiGrid = document.getElementById('taxi-grid');
         taxiData.forEach(taxi => {
-            const whatsappMessage = encodeURIComponent(`Hello, I would like to book a taxi.\nCar: ${taxi.name}\nRate: ₹${taxi.ratePerKm}/km.`);
+            const oneWayMessage = encodeURIComponent(`Hello, I would like to book a one-way taxi.\nCar: ${taxi.name}`);
+            const roundTripMessage = encodeURIComponent(`Hello, I would like to book a round-trip taxi.\nCar: ${taxi.name}`);
             taxiGrid.innerHTML += `
                 <div class="taxi-card fade-in">
-                    <div class="taxi-card-img">
-                        <img src="${taxi.img}" alt="${taxi.name}">
-                    </div>
+                    <div class="taxi-card-img"><img src="${taxi.img}" alt="${taxi.name}"></div>
                     <div class="taxi-card-content">
                         <div>
                             <h3>${taxi.name}</h3>
-                            <button class="details-toggle">
-                                Show Details <i class="fa-solid fa-chevron-down"></i>
-                            </button>
-                            <div class="details-content">
-                                <p><span>₹${taxi.ratePerKm}</span> / km</p>
-                            </div>
+                            <button class="details-toggle">Show Rate <i class="fa-solid fa-chevron-down"></i></button>
+                            <div class="details-content"><p><span>₹${taxi.ratePerKm}</span> / km</p></div>
                         </div>
-                        <a href="https://wa.me/919521021599?text=${whatsappMessage}" target="_blank" class="btn" style="margin-top: 15px;">Book Now</a>
+                        <div class="taxi-booking-options">
+                            <p>Choose Trip Type:</p>
+                            <a href="https://wa.me/919521021599?text=${oneWayMessage}" target="_blank" class="btn-small one-way">One-Way</a>
+                            <a href="https://wa.me/919521021599?text=${roundTripMessage}" target="_blank" class="btn-small round-trip">Round Trip</a>
+                        </div>
                     </div>
-                </div>
-            `;
+                </div>`;
         });
 
         // --- UI INTERACTIONS ---
@@ -540,7 +543,7 @@
             clickedCard.classList.toggle('active');
         });
 
-        // --- Booking Modal Logic (Restored) ---
+        // --- Booking Modal Logic ---
         const bookingModal = document.getElementById('bookingModal');
         const successModal = document.getElementById('successModal');
         let currentTour = {};
