@@ -325,7 +325,7 @@
                     <li><a class="nav-link-item" data-scroll-to="self-drive-cars">Self-Drive</a></li>
                     <li><a class="nav-link-item" data-scroll-to="domestic-tours">Tours</a></li>
                     <li><a class="nav-link-item" data-scroll-to="about">About Me</a></li>
-                    <li><a class="nav-link-item contact-link-menu" style="cursor: pointer;">Contact Card</a></li>
+                    <!-- <li><a class="nav-link-item contact-link-menu" style="cursor: pointer;">Contact Card</a></li> -->
                 </ul>
             </nav>
 
@@ -502,6 +502,141 @@
     <a href="tel:8118816370" class="fab call-float">
         <i class="fa-solid fa-phone"></i>
     </a>
+
+    <footer style="
+  position: relative;
+  background: linear-gradient(135deg, #001219, #005f73, #0a9396);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  padding: 60px 25px;
+  text-align: center;
+  overflow: hidden;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2);
+">
+
+  <!-- Subtle Animated Gradient Overlay -->
+  <div style="
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(270deg, rgba(238,155,0,0.15), rgba(255,183,3,0.15), rgba(0,95,115,0.15));
+    background-size: 400% 400%;
+    animation: gradientSlide 10s ease infinite;
+    z-index: 0;
+  "></div>
+
+  <!-- Footer Content -->
+  <div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;">
+
+    <!-- Title -->
+    <h3 style="
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      background: linear-gradient(45deg, #ffb703, #ffd166);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-shadow: 0 0 25px rgba(255,183,3,0.6);
+      animation: glowPulse 3s infinite alternate;
+    ">
+      Developed by Amit Sharma
+    </h3>
+
+    <!-- Contact -->
+    <p style="font-size: 1.15rem; margin: 8px 0;">
+      <i class="fa-solid fa-phone" style="color:#ffb703; margin-right:8px;"></i>
+      <a href="tel:8875910376" 
+         style="color:#fff; font-weight:600; text-decoration:none; transition: all 0.3s ease;"
+         onmouseover="this.style.color='#ffb703'; this.style.transform='scale(1.1)';"
+         onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">
+         +91 88759 10376
+      </a>
+    </p>
+
+    <!-- Icons Row -->
+    <div style="
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    ">
+      <a href="https://wa.me/918875910376?text=Hello%20Amit!%20I%20want%20to%20book%20a%20tour."
+         target="_blank"
+         style="font-size: 1.9rem; color:#25D366; transition: all 0.3s ease;"
+         onmouseover="this.style.transform='translateY(-6px) scale(1.2)';"
+         onmouseout="this.style.transform='translateY(0) scale(1)'">
+         <i class="fab fa-whatsapp"></i>
+      </a>
+
+      <a href="mailto:amitsharma@example.com"
+         style="font-size: 1.9rem; color:#ffb703; transition: all 0.3s ease;"
+         onmouseover="this.style.transform='translateY(-6px) scale(1.2)';"
+         onmouseout="this.style.transform='translateY(0) scale(1)'">
+         <i class="fa-solid fa-envelope"></i>
+      </a>
+
+      <a href="#home"
+         style="font-size: 1.9rem; color:#00b4d8; transition: all 0.3s ease;"
+         onmouseover="this.style.transform='translateY(-6px) scale(1.2)';"
+         onmouseout="this.style.transform='translateY(0) scale(1)'">
+         <i class="fa-solid fa-plane-up"></i>
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <p style="margin-top: 25px; font-size: 0.95rem; opacity: 0.8;">
+      © 2025 Priya Tour & Travels. All rights reserved.
+    </p>
+  </div>
+
+  <!-- Scroll-to-top Button -->
+  <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
+    style="
+      position: absolute;
+      bottom: 25px;
+      right: 30px;
+      background: linear-gradient(45deg,#ffb703,#ffd166);
+      border: none;
+      color: #212529;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.3rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      z-index: 3;
+    "
+    onmouseover="this.style.transform='scale(1.15) rotate(-10deg)';"
+    onmouseout="this.style.transform='scale(1) rotate(0deg)';">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Animations -->
+  <style>
+    @keyframes gradientSlide {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px rgba(255,183,3,0.5); }
+      100% { text-shadow: 0 0 30px rgba(255,183,3,0.9); }
+    }
+
+    /* Responsive layout */
+    @media (max-width: 768px) {
+      footer h3 { font-size: 1.8rem; }
+      footer p { font-size: 1rem; }
+      footer a { font-size: 1.6rem !important; }
+      footer button { right: 15px; bottom: 20px; width: 45px; height: 45px; font-size: 1.1rem; }
+    }
+  </style>
+</footer>
+
 
 </body>
 </html>
