@@ -325,8 +325,7 @@
                     <li><a class="nav-link-item" data-scroll-to="self-drive-cars">Self-Drive</a></li>
                     <li><a class="nav-link-item" data-scroll-to="domestic-tours">Tours</a></li>
                     <li><a class="nav-link-item" data-scroll-to="about">About Me</a></li>
-                    <!-- <li><a class="nav-link-item contact-link-menu" style="cursor: pointer;">Contact Card</a></li> -->
-                </ul>
+                    </ul>
             </nav>
 
             <div class="nav-cta">
@@ -448,7 +447,17 @@
         const contactOverlay = document.getElementById('contact-overlay');
         const openContactOverlay = () => contactOverlay.classList.add('visible');
         document.querySelector('.contact-link-btn').addEventListener('click', openContactOverlay);
-        document.querySelector('.contact-link-menu').addEventListener('click', openContactOverlay);
+        
+        // --- THIS IS THE FIX ---
+        // Added a check to see if the element exists before adding a listener.
+        // The element '.contact-link-menu' is commented out in the HTML,
+        // which caused an error and stopped the rest of the script from running.
+        const contactLinkMenu = document.querySelector('.contact-link-menu');
+        if (contactLinkMenu) {
+            contactLinkMenu.addEventListener('click', openContactOverlay);
+        }
+        // --- END OF FIX ---
+
         document.getElementById('close-contact-btn').addEventListener('click', () => contactOverlay.classList.remove('visible'));
         contactOverlay.addEventListener('click', (e) => { if (e.target === contactOverlay) contactOverlay.classList.remove('visible'); });
 
@@ -516,7 +525,6 @@
   box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.2);
 ">
 
-  <!-- Subtle Animated Gradient Overlay -->
   <div style="
     position: absolute;
     inset: 0;
@@ -526,10 +534,8 @@
     z-index: 0;
   "></div>
 
-  <!-- Footer Content -->
   <div style="position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;">
 
-    <!-- Title -->
     <h3 style="
       font-family: 'Playfair Display', serif;
       font-size: 2.2rem;
@@ -544,7 +550,6 @@
       Developed by Amit Sharma
     </h3>
 
-    <!-- Contact -->
     <p style="font-size: 1.15rem; margin: 8px 0;">
       <i class="fa-solid fa-phone" style="color:#ffb703; margin-right:8px;"></i>
       <a href="tel:8875910376" 
@@ -555,7 +560,6 @@
       </a>
     </p>
 
-    <!-- Icons Row -->
     <div style="
       display: flex;
       justify-content: center;
@@ -586,13 +590,11 @@
       </a>
     </div>
 
-    <!-- Copyright -->
     <p style="margin-top: 25px; font-size: 0.95rem; opacity: 0.8;">
       © 2025 Priya Tour & Travels. All rights reserved.
     </p>
   </div>
 
-  <!-- Scroll-to-top Button -->
   <button onclick="window.scrollTo({top:0, behavior:'smooth'})"
     style="
       position: absolute;
@@ -615,7 +617,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <!-- Animations -->
   <style>
     @keyframes gradientSlide {
       0% { background-position: 0% 50%; }
